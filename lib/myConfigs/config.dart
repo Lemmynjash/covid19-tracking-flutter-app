@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class myDataSource {
+  
   static String myquote =
       "Center of your heart is the center of the Universe. Go to that center and radiate positive vibration for the well-being of the humanity.";
 

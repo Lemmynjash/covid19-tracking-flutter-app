@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'package:covid19_tracking/chopper/model/worldwide_model.dart';
+
 class WorldWide extends StatelessWidget {
+  final WorldwideModel worldwideModel;
+
+  const WorldWide({
+    Key key,
+    this.worldwideModel,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,26 +23,58 @@ class WorldWide extends StatelessWidget {
             statusColor: Colors.red[100],
             textColor: Colors.red,
             title: 'CONFIRMED',
-            count: '2000',
+            count: worldwideModel.cases != null
+                ? worldwideModel.cases.toString()
+                : '0',
           ),
           Status(
             statusColor: Colors.blue[100],
             textColor: Colors.blue,
             title: 'ACTIVE',
-            count: '2000',
+            count: worldwideModel.cases != null
+                ? worldwideModel.active.toString()
+                : '0',
           ),
           Status(
             statusColor: Colors.green[100],
             textColor: Colors.green,
             title: 'RECOVERED',
-            count: '2000',
+            count: worldwideModel.cases != null
+                ? worldwideModel.recovered.toString()
+                : '0',
           ),
           Status(
             statusColor: Colors.grey[100],
             textColor: Colors.grey,
             title: 'DEATHS',
-            count: '2000',
+            count: worldwideModel.cases != null
+                ? worldwideModel.deaths.toString()
+                : '0',
           ),
+          Status(
+            statusColor: Colors.purple[100],
+            textColor: Colors.purple,
+            title: 'TODAY CASES',
+            count: worldwideModel.todayCases != null
+                ? worldwideModel.deaths.toString()
+                : '0',
+          ),
+          Status(
+            statusColor: Colors.amber[100],
+            textColor: Colors.amber,
+            title: 'TODAY DEATHS',
+            count: worldwideModel.todayDeaths != null
+                ? worldwideModel.deaths.toString()
+                : '0',
+          ),
+          Status(
+            statusColor: Colors.pink[100],
+            textColor: Colors.pink,
+            title: 'CRITICAL',
+            count: worldwideModel.critical != null
+                ? worldwideModel.deaths.toString()
+                : '0',
+          )
         ],
       ),
     );

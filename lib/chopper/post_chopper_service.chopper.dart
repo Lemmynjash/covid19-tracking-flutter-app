@@ -19,4 +19,10 @@ class _$PostApiService extends PostApiService {
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
+
+  Future<Response> getAllCountryData() {
+    final $url = '/v2/countries?sort=country';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
 }
